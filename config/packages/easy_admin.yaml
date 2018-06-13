@@ -1,0 +1,26 @@
+easy_admin:
+    formats:
+        date: 'd/m/Y'
+        time: 'H:i'
+        datetime: 'd/m/Y H:i:s'
+    entities:
+      Promotion: 
+        class: App\Entity\Promotion
+        form:
+            fields:
+              - 'name'
+              - 'startDate'
+              - 'endDate'
+              - { property: 'students', type: 'entity', type_options: { choice_label: 'firstname', multiple: true }}
+
+      Student:
+        class: App\Entity\Student
+        form:
+            fields:
+              - 'firstname'
+              - 'lastname'
+              - 'sex'
+              - 'birthdate'
+              - { property: 'promotion', type: 'entity', type_options: { choice_label: 'name' }}
+
+    
